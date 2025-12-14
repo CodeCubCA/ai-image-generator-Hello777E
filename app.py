@@ -186,7 +186,7 @@ if st.button("🎨 Generate Image", type="primary"):
 
                 # Display the generated image
                 st.success("✨ Image generated successfully!")
-                st.image(image, caption=f"Generated: {prompt}", use_column_width=True)
+                st.image(image, caption=f"Generated: {prompt}")
 
                 # Save to history
                 timestamp = datetime.now()
@@ -270,7 +270,7 @@ if len(st.session_state.image_history) > 0:
 
                 with col:
                     # Display image
-                    st.image(img_data['image'], use_column_width=True)
+                    st.image(img_data['image'])
 
                     # Prompt and metadata
                     with st.expander(f"📝 Prompt #{img_idx + 1}"):
