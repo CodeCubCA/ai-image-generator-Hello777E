@@ -1,114 +1,174 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/zrsH8x_3)
 
-# AI Image Generator
+# 🎨 AI Image Generator
 
-A web application that generates images from text descriptions using HuggingFace's Inference API and Streamlit.
+A powerful web application that transforms text descriptions into stunning AI-generated images using HuggingFace's FLUX.1-schnell model and Streamlit.
 
-## Features
+## ✨ Features
 
-- Simple and clean web interface
-- Text-to-image generation using FLUX.1-schnell model
-- Real-time image generation
-- Error handling for common issues
-- Loading indicators
-- Helpful prompt suggestions
+- **Text-to-Image Generation** - Create images from natural language descriptions
+- **8 Style Presets** - Anime, Realistic, Digital Art, Watercolor, Oil Painting, Cyberpunk, Fantasy, and more
+- **Multiple Image Sizes** - Square (512x512), Portrait (512x768), and Landscape (768x512)
+- **Image History Gallery** - Keep track of up to 10 recently generated images
+- **Download Functionality** - Save images with timestamped filenames
+- **Real-time Preview** - See enhanced prompts before generation
+- **Intuitive UI** - Clean, user-friendly interface with helpful tips and examples
 
-## Setup Instructions
+## 🚀 Technologies Used
 
-### 1. Install Dependencies
+- **Python 3.8+** - Programming language
+- **Streamlit** - Web framework for the UI
+- **HuggingFace Inference API** - AI model hosting
+- **FLUX.1-schnell** - Fast, high-quality text-to-image model
+- **Pillow (PIL)** - Image processing library
+- **python-dotenv** - Environment variable management
 
+## 📦 Installation
+
+### Prerequisites
+- Python 3.8 or higher
+- HuggingFace account (free)
+
+### Setup Steps
+
+**1. Clone the repository**
+```bash
+git clone https://github.com/CodeCubCA/ai-image-generator-Hello777E.git
+cd ai-image-generator
+```
+
+**2. Install dependencies**
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Get HuggingFace API Token
+**3. Get your HuggingFace API Token**
+- Go to [HuggingFace Settings](https://huggingface.co/settings/tokens)
+- Click "New token"
+- Name: "AI Image Generator"
+- Select **"Write"** permissions (required for Inference API)
+- Click "Generate token"
+- Copy the token (starts with `hf_`)
 
-1. Go to https://huggingface.co/settings/tokens
-2. Click "New token"
-3. Give it a name (e.g., "AI Image Generator")
-4. Select **"Write"** permissions (or at minimum "Make calls to the serverless Inference API")
-   - **Important:** Read-only tokens will NOT work!
-5. Click "Generate token"
-6. Copy the token (starts with `hf_`)
+**4. Configure environment variables**
+```bash
+# Copy the example file
+copy .env.example .env
 
-### 3. Configure Environment Variables
+# Edit .env and add your token
+HUGGINGFACE_TOKEN=hf_your_actual_token_here
+```
 
-1. Copy the example environment file:
-   ```bash
-   copy .env.example .env
-   ```
-
-2. Open `.env` and add your token:
-   ```
-   HUGGINGFACE_TOKEN=hf_your_actual_token_here
-   ```
-
-### 4. Run the Application
-
+**5. Run the application**
 ```bash
 streamlit run app.py
 ```
 
-The app will open in your browser at `http://localhost:8501`
+The app will automatically open in your browser at `http://localhost:8501`
 
-## Usage
+## 🎯 How to Use
 
-1. Enter a detailed description of the image you want to generate
-2. Click "Generate Image"
-3. Wait 10-30 seconds for the image to be generated
-4. View your generated image
-5. Right-click to save the image
+1. **Select a Style Preset** (Optional)
+   - Choose from 8 artistic styles in the sidebar
+   - Or keep "None" to use your original prompt
 
-## Example Prompts
+2. **Enter Your Prompt**
+   - Describe the image you want to create
+   - Be specific and detailed
 
-- "A serene landscape with mountains at sunset, photorealistic, 4k"
-- "A futuristic city at night, neon lights, cyberpunk style"
-- "A cute corgi puppy playing in a flower field, sunny day, high detail"
-- "Abstract geometric shapes, vibrant colors, modern art style"
+3. **Choose Image Size**
+   - Square (512x512) - Default
+   - Portrait (512x768) - Vertical images
+   - Landscape (768x512) - Horizontal images
 
-## Tips for Better Results
+4. **Generate**
+   - Click "🎨 Generate Image"
+   - Wait 10-30 seconds for AI to create your image
 
-- Be specific and detailed in your descriptions
-- Include style keywords (e.g., "photorealistic", "oil painting", "digital art")
-- Mention lighting, colors, and mood
-- Specify quality (e.g., "4k", "high detail", "professional photography")
+5. **Download & Explore**
+   - Download images with the "⬇️ Download" button
+   - View your image history below
+   - Clear history anytime with "🗑️ Clear History"
 
-## Troubleshooting
+## 💡 Example Prompts
 
-### "API token not configured"
-- Make sure you created a `.env` file
-- Check that your token is correctly copied
-- Restart the application after adding the token
+**Landscape:**
+```
+A serene mountain landscape at sunset, photorealistic, 4k
+```
 
-### "Authentication failed"
-- Verify your token has "Write" permissions
-- Check that the token hasn't expired
-- Try generating a new token
+**Character:**
+```
+A cute corgi puppy in a flower field, sunny day, high detail
+```
 
-### "Rate limit reached"
-- Free tier has usage limits
-- Wait a few minutes before trying again
-- Consider upgrading your HuggingFace account
+**Sci-Fi:**
+```
+Futuristic cyberpunk city at night, neon lights, cinematic
+```
 
-## Technical Details
+**Abstract:**
+```
+Abstract geometric shapes, vibrant colors, modern art style
+```
 
-- **Framework:** Streamlit
-- **API:** HuggingFace Inference API
-- **Model:** black-forest-labs/FLUX.1-schnell
-- **Library:** huggingface_hub (InferenceClient)
+## 🎨 Style Presets
 
-## Project Structure
+The app includes 8 pre-configured artistic styles that automatically enhance your prompts:
+
+- **Anime** - Studio Ghibli inspired illustrations
+- **Realistic** - Photorealistic, 8K quality photography
+- **Digital Art** - Concept art, trending on ArtStation
+- **Watercolor** - Soft, traditional watercolor paintings
+- **Oil Painting** - Classical art with textured brushstrokes
+- **Cyberpunk** - Neon-lit, futuristic sci-fi aesthetics
+- **Fantasy** - Magical, enchanted, epic atmospheres
+- **None** - Use your original prompt without modifications
+
+## 📁 Project Structure
 
 ```
 ai-image-generator/
-├── app.py              # Main application
+├── app.py              # Main Streamlit application
 ├── requirements.txt    # Python dependencies
-├── .env               # Your API token (not in git)
+├── .env               # Your API token (gitignored)
 ├── .env.example       # Template for .env
-├── .gitignore         # Git ignore rules
-└── README.md          # This file
+├── .gitignore         # Files to ignore in git
+└── README.md          # This documentation
 ```
 
-## License
+## 🔧 Troubleshooting
 
-This project is for educational purposes.
+**"API token not configured"**
+- Ensure you created a `.env` file in the project root
+- Verify your token is correctly copied (starts with `hf_`)
+- Restart the application after adding the token
+
+**"Authentication failed"**
+- Your token must have "Write" permissions
+- Check if the token has expired
+- Generate a new token if needed
+
+**"Rate limit reached"**
+- HuggingFace free tier has usage limits
+- Wait a few minutes before generating again
+- Consider upgrading your HuggingFace account for higher limits
+
+**Application won't start**
+- Ensure Python 3.8+ is installed: `python --version`
+- Verify all dependencies are installed: `pip install -r requirements.txt`
+- Check if port 8501 is available
+
+## 🤝 Contributing
+
+This is a student project for educational purposes. Feel free to fork and experiment!
+
+## 📝 License
+
+This project is for educational purposes as part of a coding assignment.
+
+## 🙏 Acknowledgments
+
+- **HuggingFace** - For providing the Inference API
+- **Streamlit** - For the amazing web framework
+- **Black Forest Labs** - For the FLUX.1-schnell model
