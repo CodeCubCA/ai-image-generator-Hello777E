@@ -221,8 +221,7 @@ if st.button("🎨 Generate Image", type="primary"):
                     label="⬇️ Download Image",
                     data=byte_im,
                     file_name=filename,
-                    mime="image/png",
-                    use_container_width=True
+                    mime="image/png"
                 )
 
                 st.caption("💡 You can also right-click on the image and select 'Save image as...'")
@@ -299,7 +298,6 @@ if len(st.session_state.image_history) > 0:
                         data=byte_im,
                         file_name=filename,
                         mime="image/png",
-                        use_container_width=True,
                         key=f"download_{img_idx}"
                     )
 
